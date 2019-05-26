@@ -7,12 +7,17 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 public class AlimentoFragment extends Fragment {
 
-
+    private EditText etNombre, etPrecio;
+    private Spinner spinnerCategoria;
+    private Button btnRegistrar, btnModificar, btnBuscar, btnEliminar, btnReporte;
 
     @Nullable
     @Override
@@ -34,14 +39,60 @@ public class AlimentoFragment extends Fragment {
         inicializarComponentes(view, savedInstanceState);
     }
 
-    public void inicializarComponentes(View view, Bundle savedInstanceState){
-        Button botonMensajeAlimento = view.findViewById(R.id.boton_alimento_mensaje);
-        botonMensajeAlimento.setOnClickListener(new View.OnClickListener() {
+    public void inicializarComponentes(View view, Bundle savedInstanceState) {
+        //Inicialización EditText
+        etNombre = view.findViewById(R.id.alimento_nombre);
+        etPrecio = view.findViewById(R.id.alimento_precio);
+
+        //Inicialicación Spinner
+        spinnerCategoria = view.findViewById(R.id.alimento_spinner_categoria);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(view.getContext(),
+                R.array.alimento_categorias, android.R.layout.simple_spinner_item);
+        //Espicificamos el tipo de layout, cuando se muestran las opciones
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerCategoria.setAdapter(adapter);
+
+        //Inicialización Button
+        btnRegistrar = view.findViewById(R.id.alimento_btn_registrar);
+        btnModificar = view.findViewById(R.id.alimento_btn_modificar);
+        btnBuscar = view.findViewById(R.id.alimento_btn_buscar);
+        btnEliminar = view.findViewById(R.id.alimento_btn_eliminar);
+        btnReporte = view.findViewById(R.id.alimento_btn_reporte);
+
+        //Eventos
+        btnRegistrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(view.getContext(), ":o :O :0", Toast.LENGTH_SHORT).show();
+                Toast.makeText(view.getContext(), "Elemento ComboBox: " +
+                        spinnerCategoria.getSelectedItem(), Toast.LENGTH_SHORT).show();
             }
         });
+
+        btnModificar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+        btnBuscar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+        btnEliminar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+        btnReporte.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
     }
 
 }

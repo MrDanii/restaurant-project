@@ -19,4 +19,11 @@
     <string name="string_nav_cambiar_mesero">Cambiar Mesero</string>
     <string name="string_nav_salir">Salir</string>
 
+    <!-- Strings AlimentoFragment -->
+    <string-array name="alimento_categorias">
+        <item>Comida</item>
+        <item>Bebida</item>
+        <item>Postre</item>
+    </string-array>
+
 </resources>
