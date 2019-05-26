@@ -2,6 +2,13 @@
     <string name="app_name">Restaurant Móvil</string>
     <string name="navigation_drawer_open">Open Navigation Drawer</string>
     <string name="navigation_drawer_close">Close Navigation Drawer</string>
+    <string name="background">Background</string>
+
+    <!-- Strings Login -->
+    <string name="login_tv_usuario">Usuario:</string>
+    <string name="login_tv_password">Password:</string>
+    <string name="login_btn_login">Log in</string>
+
 
     <!-- Strings NavigationDrawer -->
     <string name="string_nav_alimento">Alimento</string>
@@ -11,7 +18,5 @@
     <string name="string_nav_reporte">Reporte</string>
     <string name="string_nav_cambiar_mesero">Cambiar Mesero</string>
     <string name="string_nav_salir">Salir</string>
-
-    <!-- -->
 
 </resources>
