@@ -87,7 +87,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Registrar" />
+            android:text="Modificar" />
 
         <Button
             android:id="@+id/alimento_btn_buscar"
@@ -95,7 +95,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Registrar" />
+            android:text="Buscar" />
 
     </LinearLayout>
 
@@ -111,7 +111,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Registrar" />
+            android:text="Eliminar" />
 
         <Button
             android:id="@+id/alimento_btn_reporte"
@@ -119,7 +119,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Registrar" />
+            android:text="Reporte" />
 
 
     </LinearLayout>

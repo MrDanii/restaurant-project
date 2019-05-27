@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fondo_imagen"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="64dp"
+        android:gravity="center"
+        android:text="Mesero"
+        android:textSize="48sp" />
+
+    <TextView
+        android:id="@+id/mesero_tv_nombre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mesero: suNombre"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/mesero_tv_numero"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="número mesero: ##"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/mesero_btn_ordenes"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Ver Ordenes" />
+
+        <Button
+            android:id="@+id/mesero_btn_propinas"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="ver Propinas" />
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

@@ -26,4 +26,10 @@
         <item>Postre</item>
     </string-array>
 
+    <!-- String EmpleadoFragment -->
+    <string-array name="empleado_puesto">
+        <item>Mesero</item>
+        <item>Administrador</item>
+    </string-array>
+
 </resources>

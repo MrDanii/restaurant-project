@@ -56,7 +56,13 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 fTransaction.replace(R.id.fragment_container, new AlimentoFragment()).commit();
                 break;
             case R.id.nav_empleado:
-                fTransaction.replace(R.id.fragment_container, new EmpleadoFragment()).commit();
+                //Dependiendo del tipo de usuario, se le mostrara un fragment distinto
+                boolean esMesero = true;
+                if(esMesero){
+                    fTransaction.replace(R.id.fragment_container, new MeseroFragment()).commit();
+                }else{
+                    fTransaction.replace(R.id.fragment_container, new EmpleadoFragment()).commit();
+                }
                 break;
             case R.id.nav_mesas:
                 fTransaction.replace(R.id.fragment_container, new MesaFragment()).commit();
