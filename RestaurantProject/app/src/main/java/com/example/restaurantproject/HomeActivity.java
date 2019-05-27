@@ -1,5 +1,6 @@
 package com.example.restaurantproject;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentTransaction;
@@ -15,6 +16,7 @@ import android.widget.Toast;
 public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private DrawerLayout drawer;
+    private long tiempoBackButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,10 +43,17 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public void onBackPressed() {
+
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            super.onBackPressed();
+            if(tiempoBackButton + 2000 > System.currentTimeMillis()){
+                super.onBackPressed();
+            }else{
+                Toast.makeText(this, "Presiona de nuevo para volver a la página principal",
+                        Toast.LENGTH_SHORT).show();
+            }
+            tiempoBackButton = System.currentTimeMillis();
         }
     }
 
@@ -75,6 +84,8 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 break;
             case R.id.nav_cambiar_mesero:
                 fTransaction.replace(R.id.fragment_container, new CambiarMeseroFragment()).commit();
+                Intent intent = new Intent(this, LoginActivity.class);
+                startActivity(intent);
                 break;
             case R.id.nav_salir:
                 Toast.makeText(this, ":)", Toast.LENGTH_SHORT).show();

@@ -2,16 +2,13 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorAccent"
+    android:background="@drawable/fondo_imagen"
     android:gravity="center">
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@drawable/fondo_imagen"
-        android:scaleType="fitXY"
-        android:gravity="center"
-        android:textSize="48sp"
-        android:contentDescription="@string/background" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Restaurant Movil"
+        android:textSize="48dp"/>
 
 </LinearLayout>
