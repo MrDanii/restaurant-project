@@ -83,9 +83,10 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 fTransaction.replace(R.id.fragment_container, new ReporteFragment()).commit();
                 break;
             case R.id.nav_cambiar_mesero:
-                fTransaction.replace(R.id.fragment_container, new CambiarMeseroFragment()).commit();
-                Intent intent = new Intent(this, LoginActivity.class);
-                startActivity(intent);
+                //fTransaction.replace(R.id.fragment_container, new CambiarMeseroFragment()).commit();
+                //Intent intent = new Intent(this, LoginActivity.class);
+                //startActivity(intent);
+                finish();
                 break;
             case R.id.nav_salir:
                 Toast.makeText(this, ":)", Toast.LENGTH_SHORT).show();

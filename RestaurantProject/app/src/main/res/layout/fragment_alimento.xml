@@ -30,6 +30,14 @@
             android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:inputType="text" />
+
+        <Button
+            android:id="@+id/alimento_btn_buscar"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Buscar" />
+
     </LinearLayout>
 
     <LinearLayout
@@ -47,7 +55,7 @@
             android:id="@+id/alimento_precio"
             android:layout_width="120dp"
             android:layout_height="wrap_content"
-            android:inputType="text" />
+            android:inputType="numberDecimal" />
     </LinearLayout>
 
     <LinearLayout
@@ -89,14 +97,6 @@
             android:layout_weight="1"
             android:text="Modificar" />
 
-        <Button
-            android:id="@+id/alimento_btn_buscar"
-            style="@style/Widget.AppCompat.Button.Colored"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Buscar" />
-
     </LinearLayout>
 
     <LinearLayout
@@ -119,8 +119,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Reporte" />
-
+            android:text="Lista de Alimentos" />
 
     </LinearLayout>
 

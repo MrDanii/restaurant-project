@@ -1,8 +1,14 @@
 package com.example.restaurantproject.modelo;
 
 public class Alimento {
-    int idAlimento, existencia,Categoria_idCategoria;
-    String nombre;
+    private int idAlimento, existencia,Categoria_idCategoria;
+    private String nombre;
+
+    public Alimento(int categoria_idCategoria, String nombre, float precio) {
+        Categoria_idCategoria = categoria_idCategoria;
+        this.nombre = nombre;
+        this.precio = precio;
+    }
 
     public int getIdAlimento() {
         return idAlimento;
@@ -44,5 +50,5 @@ public class Alimento {
         this.precio = precio;
     }
 
-    float precio;
+    private float precio;
 }

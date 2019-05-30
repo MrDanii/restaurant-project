@@ -1,15 +1,324 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FCD666"
     android:gravity="center"
-    android:background="@color/colorAccent">
+    android:padding="12dp">
 
-    <TextView
+    <TableRow android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal">
+        <TextView android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Seleccione una mesa\n para la orden"
+            android:gravity="center_horizontal"
+            android:textSize="32sp"
+            android:layout_marginBottom="24dp"
+            />
+    </TableRow>
+    <TableRow
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Orden/Comanda"
-        android:textSize="48sp"
-        android:gravity="center"/>
+        android:gravity="center_horizontal">
 
-</LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button android:id="@+id/mesas_btn_1"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="12dp"
+                android:layout_weight="1"
+                android:background="@drawable/borde_redondo"
+                android:text="1" />
+
+            <Button android:id="@+id/mesas_btn_2"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="12dp"
+                android:layout_weight="1"
+                android:background="@drawable/borde_redondo"
+                android:text="2" />
+
+            <Button android:id="@+id/mesas_btn_3"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="12dp"
+                android:layout_weight="1"
+                android:background="@drawable/borde_redondo"
+                android:text="3" />
+
+            <Button android:id="@+id/mesas_btn_4"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="12dp"
+                android:layout_weight="1"
+                android:background="@drawable/borde_redondo"
+                android:text="4" />
+            <Button android:id="@+id/mesas_btn_5"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="12dp"
+                android:layout_weight="1"
+                android:background="@drawable/borde_redondo"
+                android:text="5" />
+        </LinearLayout>
+    </TableRow>
+
+    <TableRow
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button android:id="@+id/mesas_btn_6"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="12dp"
+                android:layout_weight="1"
+                android:background="@drawable/borde_redondo"
+                android:text="6" />
+
+            <Button android:id="@+id/mesas_btn_7"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="12dp"
+                android:layout_weight="1"
+                android:background="@drawable/borde_redondo"
+                android:text="7" />
+
+            <Button android:id="@+id/mesas_btn_8"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="12dp"
+                android:layout_weight="1"
+                android:background="@drawable/borde_redondo"
+                android:text="8" />
+
+            <Button android:id="@+id/mesas_btn_9"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="12dp"
+                android:layout_weight="1"
+                android:background="@drawable/borde_redondo"
+                android:text="9" />
+            <Button android:id="@+id/mesas_btn_10"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="12dp"
+                android:layout_weight="1"
+                android:background="@drawable/borde_redondo"
+                android:text="10" />
+        </LinearLayout>
+    </TableRow>
+    <TableRow
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button android:id="@+id/mesas_btn_11"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="12dp"
+                android:layout_weight="1"
+                android:background="@drawable/borde_redondo"
+                android:text="11" />
+
+            <Button android:id="@+id/mesas_btn_12"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="12dp"
+                android:layout_weight="1"
+                android:background="@drawable/borde_redondo"
+                android:text="12" />
+
+            <Button android:id="@+id/mesas_btn_13"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="12dp"
+                android:layout_weight="1"
+                android:background="@drawable/borde_redondo"
+                android:text="13" />
+
+            <Button android:id="@+id/mesas_btn_14"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="12dp"
+                android:layout_weight="1"
+                android:background="@drawable/borde_redondo"
+                android:text="14" />
+            <Button android:id="@+id/mesas_btn_15"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="12dp"
+                android:layout_weight="1"
+                android:background="@drawable/borde_redondo"
+                android:text="15" />
+        </LinearLayout>
+    </TableRow>
+    <TableRow
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button android:id="@+id/mesas_btn_16"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="12dp"
+                android:layout_weight="1"
+                android:background="@drawable/borde_redondo"
+                android:text="16" />
+
+            <Button android:id="@+id/mesas_btn_17"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="12dp"
+                android:layout_weight="1"
+                android:background="@drawable/borde_redondo"
+                android:text="17" />
+
+            <Button android:id="@+id/mesas_btn_18"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="12dp"
+                android:layout_weight="1"
+                android:background="@drawable/borde_redondo"
+                android:text="18" />
+
+            <Button android:id="@+id/mesas_btn_19"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="12dp"
+                android:layout_weight="1"
+                android:background="@drawable/borde_redondo"
+                android:text="19" />
+            <Button android:id="@+id/mesas_btn_20"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="12dp"
+                android:layout_weight="1"
+                android:background="@drawable/borde_redondo"
+                android:text="20" />
+        </LinearLayout>
+    </TableRow>
+    <TableRow
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button android:id="@+id/mesas_btn_21"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="12dp"
+                android:layout_weight="1"
+                android:background="@drawable/borde_redondo"
+                android:text="21" />
+
+            <Button android:id="@+id/mesas_btn_22"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="12dp"
+                android:layout_weight="1"
+                android:background="@drawable/borde_redondo"
+                android:text="22" />
+
+            <Button android:id="@+id/mesas_btn_23"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="12dp"
+                android:layout_weight="1"
+                android:background="@drawable/borde_redondo"
+                android:text="23" />
+
+            <Button android:id="@+id/mesas_btn_24"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="12dp"
+                android:layout_weight="1"
+                android:background="@drawable/borde_redondo"
+                android:text="24" />
+            <Button android:id="@+id/mesas_btn_25"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="12dp"
+                android:layout_weight="1"
+                android:background="@drawable/borde_redondo"
+                android:text="25" />
+        </LinearLayout>
+    </TableRow>
+    <TableRow
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button android:id="@+id/mesas_btn_26"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="12dp"
+                android:layout_weight="1"
+                android:background="@drawable/borde_redondo"
+                android:text="26" />
+
+            <Button android:id="@+id/mesas_btn_27"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="12dp"
+                android:layout_weight="1"
+                android:background="@drawable/borde_redondo"
+                android:text="27" />
+
+            <Button android:id="@+id/mesas_btn_28"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="12dp"
+                android:layout_weight="1"
+                android:background="@drawable/borde_redondo"
+                android:text="28" />
+
+            <Button android:id="@+id/mesas_btn_29"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="12dp"
+                android:layout_weight="1"
+                android:background="@drawable/borde_redondo"
+                android:text="29" />
+
+            <Button
+                android:id="@+id/mesas_btn_30"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="12dp"
+                android:layout_weight="1"
+                android:background="@drawable/borde_redondo"
+                android:text="30" />
+        </LinearLayout>
+    </TableRow>
+
+</TableLayout>
