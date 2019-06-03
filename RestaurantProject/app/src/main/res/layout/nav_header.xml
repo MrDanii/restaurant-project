@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="176dp"
+    android:layout_height="220dp"
     android:background="@color/colorAccent"
     android:gravity="bottom"
     android:orientation="vertical"
@@ -9,23 +9,23 @@
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@mipmap/ic_launcher_round" />
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:src="@drawable/icono_mesero" />
 
     <TextView
-        android:id="@+id/nav_tv_numero_mesero"
+        android:id="@+id/nav_tv_usuario_empleado"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="8dp"
-        android:text="Mesero #0"
+        android:text="Usuario: "
         android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
     <TextView
-        android:id="@+id/nav_tv_nombre_mesero"
+        android:id="@+id/nav_tv_nombre_empleado"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="8dp"
-        android:text="Isaac Hernández"
+        android:text="Nombre: "
         android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 </LinearLayout>

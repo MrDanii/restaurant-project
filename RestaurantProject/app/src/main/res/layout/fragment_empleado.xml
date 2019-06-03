@@ -87,6 +87,14 @@
             android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:inputType="text"></EditText>
+
+        <Button
+            android:id="@+id/empleado_btn_buscar"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Buscar" />
+
     </LinearLayout>
 
     <LinearLayout
@@ -128,14 +136,6 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Modificar" />
-
-        <Button
-            android:id="@+id/empleado_btn_buscar"
-            style="@style/Widget.AppCompat.Button.Colored"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Buscar" />
 
     </LinearLayout>
 

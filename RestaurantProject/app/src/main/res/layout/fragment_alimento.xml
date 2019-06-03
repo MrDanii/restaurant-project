@@ -114,7 +114,7 @@
             android:text="Eliminar" />
 
         <Button
-            android:id="@+id/alimento_btn_reporte"
+            android:id="@+id/alimento_btn_listar"
             style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -122,5 +122,12 @@
             android:text="Lista de Alimentos" />
 
     </LinearLayout>
+
+    <Button
+        android:id="@+id/alimento_btn_reporte"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Reporte" />
 
 </LinearLayout>

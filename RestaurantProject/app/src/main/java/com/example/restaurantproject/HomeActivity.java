@@ -11,17 +11,27 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.restaurantproject.modelo.Empleado;
 
 public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private DrawerLayout drawer;
     private long tiempoBackButton;
+    private TextView tvUsuario, tvNombre;
+    private Empleado empleadoActual;
+
+    //extras
+    Bundle bundle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        bundle = getIntent().getExtras();
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -35,10 +45,27 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
+        tvUsuario = navigationView.getHeaderView(0).findViewById(R.id.nav_tv_usuario_empleado);
+        tvNombre = navigationView.getHeaderView(0).findViewById(R.id.nav_tv_nombre_empleado);
+
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                     new PresentacionFragment()).commit();
         }
+
+        inicializarEmpleado();
+    }
+
+    private void inicializarEmpleado(){
+        //Bundle bundle = getIntent().getExtras();
+        empleadoActual = new Empleado();
+        empleadoActual.setClave_empleado(bundle.getString("usuario", "usuario"));
+        empleadoActual.setContrasena(bundle.getString("password", "password"));
+        empleadoActual.setPuesto(bundle.getString("puesto", "mesero"));
+        empleadoActual.setNombre(bundle.getString("nombre", "Isaac Ulises Hernández Márquez"));
+
+        tvUsuario.setText("Usuario: " + empleadoActual.getClave_empleado());
+        tvNombre.setText("Nombre: " + empleadoActual.getNombre());
     }
 
     @Override
@@ -62,14 +89,24 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         FragmentTransaction fTransaction = getSupportFragmentManager().beginTransaction();
         switch (item.getItemId()) {
             case R.id.nav_alimento:
-                fTransaction.replace(R.id.fragment_container, new AlimentoFragment()).commit();
+                AlimentoFragment alimentoF = new AlimentoFragment();
+
+                alimentoF.setArguments(bundle);
+                fTransaction.replace(R.id.fragment_container, alimentoF).commit();
                 break;
             case R.id.nav_empleado:
                 //Dependiendo del tipo de usuario, se le mostrara un fragment distinto
-                boolean esMesero = true;
+                boolean esMesero = empleadoActual.getPuesto().equalsIgnoreCase("mesero");
+
                 if(esMesero){
-                    fTransaction.replace(R.id.fragment_container, new MeseroFragment()).commit();
+                    MeseroFragment meseroFragment = new MeseroFragment();
+                    meseroFragment.setArguments(bundle);
+
+                    fTransaction.replace(R.id.fragment_container, meseroFragment).commit();
                 }else{
+                    EmpleadoFragment empleadoFragment = new EmpleadoFragment();
+                    empleadoFragment.setArguments(bundle);
+
                     fTransaction.replace(R.id.fragment_container, new EmpleadoFragment()).commit();
                 }
                 break;
@@ -77,7 +114,10 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 fTransaction.replace(R.id.fragment_container, new MesaFragment()).commit();
                 break;
             case R.id.nav_orden:
-                fTransaction.replace(R.id.fragment_container, new OrdenFragment()).commit();
+                OrdenFragment ordenFragment = new OrdenFragment();
+                ordenFragment.setArguments(bundle);
+
+                fTransaction.replace(R.id.fragment_container, ordenFragment).commit();
                 break;
             case R.id.nav_reporte:
                 fTransaction.replace(R.id.fragment_container, new ReporteFragment()).commit();
@@ -97,4 +137,5 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
 }

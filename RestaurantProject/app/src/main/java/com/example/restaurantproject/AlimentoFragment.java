@@ -1,5 +1,6 @@
 package com.example.restaurantproject;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -30,24 +31,27 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import static android.app.Activity.RESULT_OK;
+
 public class AlimentoFragment extends Fragment {
 
-    final String IPV4 = "192.168.0.12";
-    static final int DEFAULT_TIMEOUT = 15000;
+    static final int CODIGO_LISTA_ALIMENTOS = 1;
 
     private EditText etNombre, etPrecio;
     private Spinner spinnerCategoria;
     private int indexSpinnerCategoria;
-    private Button btnRegistrar, btnModificar, btnBuscar, btnEliminar, btnReporte;
+    private Button btnRegistrar, btnModificar, btnBuscar, btnEliminar, btnListaAl, btnReporte;
 
     //Variables para el servicio Web
     RequestQueue requestQueue;
 
     //Objetos modelo
     private Alimento alimento;
+    private ArrayList<Alimento> arrAlimentos;
 
     @Nullable
     @Override
@@ -69,6 +73,21 @@ public class AlimentoFragment extends Fragment {
         inicializarComponentes(view, savedInstanceState);
     }
 
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == CODIGO_LISTA_ALIMENTOS){
+            if(resultCode == RESULT_OK){
+                String nombre = data.getExtras().getString("nombre_alimento", "N/A");
+                nombre = nombre.replace(" ", "%20");
+                servicioBuscar("http://" + ConstantesConf.IPV4 +
+                        ":80/restaurantmovil/buscarAlimento.php?nombre=" + nombre, getView());
+            }else{
+                Toast.makeText(getView().getContext(), "Error al obtener el alimento", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
     public void inicializarComponentes(View view, Bundle savedInstanceState) {
         //Inicialización EditText
         etNombre = view.findViewById(R.id.alimento_nombre);
@@ -87,33 +106,42 @@ public class AlimentoFragment extends Fragment {
         btnModificar = view.findViewById(R.id.alimento_btn_modificar);
         btnBuscar = view.findViewById(R.id.alimento_btn_buscar);
         btnEliminar = view.findViewById(R.id.alimento_btn_eliminar);
+        btnListaAl = view.findViewById(R.id.alimento_btn_listar);
         btnReporte = view.findViewById(R.id.alimento_btn_reporte);
 
         //Eventos
         btnRegistrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                servicioRegistro("http://" + IPV4 + ":80/restaurantmovil/insertarAlimento.php", view);
+                servicioRegistro("http://" + ConstantesConf.IPV4 + ":80/restaurantmovil/insertarAlimento.php", view);
             }
         });
 
         btnModificar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                servicioRegistro("http://" + IPV4 + ":80/restaurantmovil/modificarAlimento.php", view);
+                servicioRegistro("http://" + ConstantesConf.IPV4 + ":80/restaurantmovil/modificarAlimento.php", view);
             }
         });
         btnBuscar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String nombre = etNombre.getText().toString();
-                servicioBuscar("http://" + IPV4 + ":80/restaurantmovil/buscarAlimento.php?nombre=" + nombre, view);
+                nombre = nombre.replace(" ", "%20");
+                servicioBuscar("http://" + ConstantesConf.IPV4 + ":80/restaurantmovil/buscarAlimento.php?nombre=" + nombre, view);
             }
         });
         btnEliminar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                servicioEliminar("http://"+ IPV4 + ":80/restaurantmovil/eliminarAlimento.php", view);
+                servicioEliminar("http://"+ ConstantesConf.IPV4 + ":80/restaurantmovil/eliminarAlimento.php", view);
+            }
+        });
+        btnListaAl.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getView().getContext(), ListaAlimentosActivity.class);
+                startActivityForResult(intent, CODIGO_LISTA_ALIMENTOS);
             }
         });
         btnReporte.setOnClickListener(new View.OnClickListener() {
@@ -204,14 +232,14 @@ public class AlimentoFragment extends Fragment {
             @Override
             public void onResponse(String response) {
                 Toast.makeText(getView().getContext(), "Operacion Exitosa", Toast.LENGTH_SHORT).show();
-                Log.e("Registro Alimento", "Operacion Exitosa");
+                Log.e("Eliminación Alimento", "Operacion Exitosa");
                 limpiarCampos();
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 Toast.makeText(getView().getContext(), "Operacion Fallida", Toast.LENGTH_SHORT).show();
-                Log.e("Registro Alimento", "Operacion Fallida:\n" + error.toString());
+                Log.e("Eliminación Alimento", "Operacion Fallida:\n" + error.toString());
 
             }
         }) {
@@ -227,10 +255,4 @@ public class AlimentoFragment extends Fragment {
         requestQueue = Volley.newRequestQueue(view.getContext());
         requestQueue.add(stringRequest);
     }
-
-    /*
-        Let see
-        https://www.youtube.com/channel/UCKu7ZnF8n0rBBhIqvo5L0xg
-     */
-
 }

@@ -2,12 +2,24 @@ package com.example.restaurantproject.modelo;
 
 public class Alimento {
     private int idAlimento, existencia,Categoria_idCategoria;
+    private long idImagen;
     private String nombre;
 
     public Alimento(int categoria_idCategoria, String nombre, float precio) {
         Categoria_idCategoria = categoria_idCategoria;
         this.nombre = nombre;
         this.precio = precio;
+    }
+
+    public long getIdImagen() {
+        return idImagen;
+    }
+
+    public void setIdImagen(long idImagen) {
+        this.idImagen = idImagen;
+    }
+
+    public Alimento() {
     }
 
     public int getIdAlimento() {
